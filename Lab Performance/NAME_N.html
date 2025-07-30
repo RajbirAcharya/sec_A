@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Name Validation</title>
+
+</head>
+<body>
+     <form method="get" action="" enctype="multipart/form-data" onsubmit="return checkUsername()">
+       <fieldset>   Name : <br><input type = "text" id = "name" placeholder="Enter full name"><br>
+                    <p id = "error" style = "color:red;"> </p>
+                    <button type = "submit">Submit</button>
+       </fieldset>
+     </form>
+
+     
+
+     <script>   
+        function checkUsername(){
+            let name = document.getElementById("name").value.trim();
+            let error = document.getElementById("error");
+
+            if(name.length === 0){
+                error.innerHTML = "Please type Name!";
+                return false;
+            }
+            let words = name.split(" ").filter(word => word.length > 0);
+
+            if(words.length<2){
+                error.innerHTML = "Name must contain at least two words.";
+                return false;
+            }
+
+            for(let i=0; i<name.length; i++){
+                let chars = name[i];
+                if(!((fL>='A' && fL<='Z')||(fL>='a' && fL<='z') || fL ==='.' || fL ==='-' || fl ===' ')){
+                    error.innerHTML = "Name can only contain letters, dot(.) and dash(-)"
+                    return false;
+                }
+            }
+
+            let fL = name[0];
+            if(!((fL>='A' && fL<='Z')||(fL>='a' && fL<='z'))){
+                error.innerHTML = "Name must start with a letter!"
+                return false;
+            }
+
+        }
+     </script>
+</body>
+</html>
