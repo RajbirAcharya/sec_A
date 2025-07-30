@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Gender</title>
+</head>
+<body>
+
+    <form onsubmit="return validateGender()"> 
+       
+        Gender <br><br>
+        <label>
+            <input type="radio" name="gender" id="male" value="male" /> Male
+        </label>
+        <label>
+            <input type="radio" name="gender" id="female" value="female" /> Female
+        </label>
+        <label>
+            <input type="radio" name="gender" id="other" value="other" /> Other
+        </label>
+        <p id="genderError" style="color:red;"></p>
+        <input type="submit" value="Submit" />
+    </form>
+
+    <script>
+        function validateGender() {
+            const radios = document.getElementsByName('gender');
+            const error = document.getElementById('genderError');
+            let selected = false;
+
+            for (let radio of radios) {
+                if (radio.checked) {
+                    selected = true;
+                    break;
+                }
+            }
+
+            if (!selected) {
+                error.textContent = "Please select a gender.";
+                return false;
+            }
+
+            error.textContent = "";
+            return true;
+        }
+    </script>
+
+</body>
+</html>

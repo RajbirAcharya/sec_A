@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <title>Degree</title>
+</head>
+<body>
+    <h2>Degree</h2>
+    <form onsubmit="return validationDegree()">
+        <label>
+            <input type="checkbox" name="degree" value="ssc" /> SSC
+        </label>
+        <label>
+            <input type="checkbox" name="degree" value="hsc" /> HSC
+        </label>
+        <label>
+            <input type="checkbox" name="degree" value="bsc" /> BSc
+        </label>
+        <p id="degreeerror" style="color:red;"></p>
+        <input type="submit" value="Submit"/>
+    </form>
+    <script>
+        function validationDegree() {
+            let degreeError= document.getElementById("degreeerror");
+            let selected = false;
+            let checkboxes = document.getElementsByName("degree");
+            for (let i = 0; i < checkboxes.length; i++) {
+                if (checkboxes[i].checked) {
+                    selected = true;
+                    break;
+                }
+            }
+            if (!selected) {
+                degreeError.textContent = "Please select a degree.";
+            } else {
+                degreeError.textContent = "";
+            }
+            return selected;    
+        }
+    </script>
+</body>
+</html>
