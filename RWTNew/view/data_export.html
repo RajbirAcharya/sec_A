@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Data Export</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="body_measurements.html">Body Measurements</a>
+        <a href="progress_charts.html">Progress Charts</a>
+        <a href="goal_setting.html">Goal Setting</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="search_filter.html">Search & Filter</a>
+    </nav>
+    <h2>Export Your Data</h2>
+    <form method="POST" action="data_export.php" id="exportForm">
+        <label for="date">Date Range (optional):</label>
+        <input type="text" id="date" name="date" placeholder="e.g., 2025-09-01 to 2025-09-03">
+        <span id="dateError" class="error"></span>
+        <label for="format">Format:</label>
+        <select id="format" name="format">
+            <option value="csv">CSV</option>
+        </select>
+        <button type="submit">Download</button>
+    </form>
+</body>
+</html>

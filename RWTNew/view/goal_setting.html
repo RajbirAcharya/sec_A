@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Goal Setting</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="body_measurements.html">Body Measurements</a>
+        <a href="progress_charts.html">Progress Charts</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="search_filter.html">Search & Filter</a>
+        <a href="data_export.html">Data Export</a>
+    </nav>
+    <h2>Create a Goal</h2>
+    <form method="POST" action="goal_setting.php" id="goalForm">
+        <label for="goal">Goal (e.g., Run 5K, Lose 5lbs):</label>
+        <input type="text" id="goal" name="goal" placeholder="e.g., Run 5K">
+        <span id="goalError" class="error"></span>
+        <label for="deadline">Deadline (weeks):</label>
+        <select id="deadline" name="deadline">
+            <option value="4">4</option>
+            <option value="8">8</option>
+        </select>
+        <span id="deadlineError" class="error"></span>
+        <button type="submit">Set Goal</button>
+    </form>
+</body>
+</html>

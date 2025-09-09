@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Measurements</title>
+    <link rel="stylesheet" href="styles.css">
+    <script>
+    window.onload = function() {
+        const urlParams = new URLSearchParams(window.location.search);
+        const errors = JSON.parse(urlParams.get('errors') || '{}');
+        const success = urlParams.get('success');
+
+        if (errors.weight) document.getElementById("weightError").innerText = errors.weight;
+        if (errors.waist) document.getElementById("waistError").innerText = errors.waist;
+        if (success) {
+            let successDiv = document.createElement("div");
+            successDiv.className = "alert alert-success";
+            successDiv.innerText = success;
+            document.querySelector("form").insertAdjacentElement("beforebegin", successDiv);
+        }
+
+        if (urlParams.toString()) {
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    };
+    </script>
+</head>
+<body>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="progress_charts.html">Progress Charts</a>
+        <a href="goal_setting.html">Goal Setting</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="search_filter.html">Search & Filter</a>
+        <a href="data_export.html">Data Export</a>
+    </nav>
+    <div class="glass-card">
+        <h2>Log Your Measurements</h2>
+        <form method="POST" action="body_measurements.php" id="measurementForm" onsubmit="return validateMeasurementForm()">
+            <label for="weight">Weight (lbs):</label>
+            <input type="number" id="weight" name="weight" placeholder="e.g., 150">
+            <span id="weightError" class="error"></span>
+            <label for="waist">Waist (inches):</label>
+            <input type="number" id="waist" name="waist" placeholder="e.g., 32">
+            <span id="waistError" class="error"></span>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+</body>
+</html>

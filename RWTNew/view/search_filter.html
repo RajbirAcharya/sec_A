@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search & Filter</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav>
+        <a href="dashboard.html">Dashboard</a>
+        <a href="body_measurements.html">Body Measurements</a>
+        <a href="progress_charts.html">Progress Charts</a>
+        <a href="goal_setting.html">Goal Setting</a>
+        <a href="notifications.html">Notifications</a>
+        <a href="data_export.html">Data Export</a>
+    </nav>
+    <h2>Search Your Data</h2>
+    <form method="POST" action="search_filter.php" id="searchForm">
+        <input type="text" id="search" name="search" placeholder="Search measurements...">
+        <span id="searchError" class="error"></span>
+        <select id="filter" name="filter">
+            <option value="all">All</option>
+            <option value="weight">By Weight</option>
+            <option value="date">By Date</option>
+        </select>
+        <button type="submit">Apply</button>
+    </form>
+    <div id="results"></div>
+</body>
+</html>
